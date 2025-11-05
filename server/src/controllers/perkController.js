@@ -37,6 +37,7 @@ export async function filterPerks(req, res, next) {
 // get all perks
 export async function getAllPerks(req, res, next) {
   try {
+    console.log('User ID from request:', req.user?.id);
     if (!req.user?.id) return res.status(401).json({ message: 'Unauthorized' });
 
     const perks = await Perk
